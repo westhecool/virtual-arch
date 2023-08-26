@@ -1,0 +1,10 @@
+FROM arm32v7/ubuntu
+RUN apt update
+RUN apt install qemu-user-static -y
+ADD ubuntu-amd64.tar /rootfs
+ADD https://raw.githubusercontent.com/qemu/qemu/master/scripts/qemu-binfmt-conf.sh /
+RUN mkdir /rootfs/qemu
+RUN cp /usr/bin/qemu* /rootfs/qemu -v
+COPY init.sh /init.sh
+ENTRYPOINT ["/bin/bash", "/init.sh"]
+CMD ["/bin/bash"]
