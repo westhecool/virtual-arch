@@ -4,6 +4,7 @@ for i in *; do
     echo ghcr.io/westhecool/virtual-arch:$i
     cd $i
     cp ../../init.sh .
+    cp ../../run.sh .
     docker build -t ghcr.io/westhecool/virtual-arch:$i .
     docker push ghcr.io/westhecool/virtual-arch:$i
     cd ..

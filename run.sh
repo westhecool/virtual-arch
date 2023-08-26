@@ -1,0 +1,1 @@
+chroot /rootfs /bin/bash -c "$@"
